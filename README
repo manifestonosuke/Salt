@@ -1,0 +1,7 @@
+This is a salt configuration to mainly configure linux workstation
+The profile is defined by a grain called type to be set in the /etc/salt/minion file like :
+grains:
+  type: work
+
+Then top file in salt dir use that for configuration.
+Pillar contains specifics about packages and other distro based parameters
