@@ -1,0 +1,6 @@
+* disable selinux 
+* package cleaning
+packagekitd
+tracker-extract
+dnf
+packagekit.service
