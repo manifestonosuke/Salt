@@ -1,8 +1,5 @@
-
-local:
-  group.present:
-    - gid: 10000
-
 include:
-  - home.users
-  - home.software  
+  - home.user
+  - home.dev
+  - home.software
+  - home.jap

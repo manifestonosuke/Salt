@@ -2,5 +2,6 @@ base:
   '*':
     - sw_server
     - sw_workstation
-    - groups
+    - group
     - test
+    - sw_all

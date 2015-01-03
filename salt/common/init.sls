@@ -1,3 +1,3 @@
 include:
-  - common.server
-  - common.software  
+  - .env
+  - .software

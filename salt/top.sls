@@ -1,10 +1,11 @@
-base:
-  'type:work':
-    - match: grain
-    - work
-  'type:home':
-    - match: grain
+base: 
+  'G@os:Fedora and G@type:home':
+    - match: compound
+    - fedora
+    - common
     - home
-  'type:server':
-    - match: grain
-    - server
+  'os:Debian and type:home' :
+    - common
+    - home
+
+
