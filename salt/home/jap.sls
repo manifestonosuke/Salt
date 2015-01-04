@@ -1,6 +1,6 @@
 japenv:
   pkg.installed:
-    pkgs:
+    - pkgs:
       - mona-sazanami-fonts.noarch
       - sazanami-fonts-common.noarch
       - sazanami-gothic-fonts.noarch

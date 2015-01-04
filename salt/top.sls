@@ -4,7 +4,8 @@ base:
     - fedora
     - common
     - home
-  'os:Debian and type:home' :
+  #'G@type: home' :
+  '*' :
     - common
     - home
 
