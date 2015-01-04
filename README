@@ -7,3 +7,7 @@ Then top file in salt dir use that for configuration.
 Pillar contains specifics about packages and other distro based parameters
 
 2014/01/03 : reviewing global arch in pure dev stage
+pillar : 
+	- have a static definition file to define variables like data filesystem
+	- Have definition of main packages (like firefox apache ..) that change amongst distro
+

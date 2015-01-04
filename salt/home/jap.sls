@@ -8,5 +8,5 @@ japenv:
       - ibus-mozc
 
 /etc/profile.d/scim.sh:
-  files.managed:
+  file.managed:
     - source: salt://home/scim.sh

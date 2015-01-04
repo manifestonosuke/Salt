@@ -1,2 +1,7 @@
 disabled:
-    selinux.mode
+  selinux.mode
+
+packagekit:
+  service:
+   - disabled: True
+   - dead

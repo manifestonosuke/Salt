@@ -1,11 +1,9 @@
 base: 
-  'G@os:Fedora and G@type:home':
-    - match: compound
+  'os:Fedora':
+    - match: grain
     - fedora
-    - common
-    - home
-  #'G@type: home' :
-  '*' :
+  'type:home' :
+    - match: grain
     - common
     - home
 

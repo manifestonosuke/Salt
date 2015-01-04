@@ -5,3 +5,4 @@ base:
     - group
     - test
     - sw_all
+    - files

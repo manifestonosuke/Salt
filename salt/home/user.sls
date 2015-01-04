@@ -2,21 +2,21 @@ local:
   group.present:
     - gid : 10000
 
-/data:
+/{{ pillar ['data'] }}:
   file.directory:
     - user: root
     - group: local
     - mode: 755
     - makedirs: True
   mount.mounted:
-    - device : /dev/sda4
+    - device : {{ pillar ['datadev'] }}
     - fstype : ext4
     - persist: True
     - mount: True
 
 /home/pierre:
   file.symlink:
-    - target : /data/home/pierre
+    - target : /{{ pillar ['data'] }}/home/pierre
 
 pierre:
   user.present:
