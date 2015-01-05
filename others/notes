@@ -6,5 +6,6 @@ dnf
 packagekit.service
 mozilla-thunderbird.desktop / mozilla-thunderbird.desktop
 
+KDE :
 oxygen-fonts-common
-
+kde-mplayer-thumbnailer

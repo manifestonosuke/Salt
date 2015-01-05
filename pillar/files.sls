@@ -5,5 +5,5 @@ message_file: /var/log/syslog
 {% endif %}
 
 data: data
-datadev: /dev/sda4
+datadev: /dev/sda3
 

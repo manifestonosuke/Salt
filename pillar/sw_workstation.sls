@@ -9,6 +9,9 @@ browser:
   {% elif grains['os'] == 'Ubuntu' -%}
     firefox: firefox
     chromium:chromium-browser
+  {% elif grains['os_family'] == 'openSUSE' -%}
+    firefox: MozillaFirefox
+    chromium: chromium
   {% elif grains['os_family'] == 'Debian' -%}
     firefox: iceweasel
   {% else %}
