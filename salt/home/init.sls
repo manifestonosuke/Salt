@@ -1,5 +1,6 @@
 include:
   - home.user
   - home.software
-  - home.dev
+  - common.dev
   - common.sw_jpsupport
+  - common.kde

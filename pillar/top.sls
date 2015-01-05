@@ -1,8 +1,6 @@
 base:
   '*':
-    - sw_server
-    - sw_workstation
+    - setting
+    - sw_alias
     - group
-    - sw_all
-    - sw_browser
     - files

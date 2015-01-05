@@ -1,5 +1,5 @@
 include:
   - work.user
-  - work.dev
   - work.software
+  - common.dev
   - common.sw_jpsupport

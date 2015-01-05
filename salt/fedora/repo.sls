@@ -4,7 +4,7 @@
 fusion:
   pkg.installed:
     - sources:
-      - rpmfusion: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fv }}.noarch.rpm
+      - rpmfusion-free-release: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fv }}.noarch.rpm
 
 chromerepo:
   pkgrepo.managed:

@@ -4,6 +4,4 @@ message_file: /var/log/messages
 message_file: /var/log/syslog
 {% endif %}
 
-data: data
-datadev: /dev/sda3
 
