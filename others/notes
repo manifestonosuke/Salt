@@ -13,4 +13,7 @@ kde-mplayer-thumbnailer
 video:
 yum install gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-ffmpeg
 
-
+fedora :
+remove evolution
+disable avahi  abrtd 
+ipv6

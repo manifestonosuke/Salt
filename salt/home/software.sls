@@ -6,7 +6,8 @@ dekstop:
       - skrooge
       - calibre
       - rekonq
-      - thunderbird
-      - firefox
+      - {{ pillar ['internet']['firefox'] }} 
+      - {{ pillar ['internet']['chromium'] }}
       - keepassx
+      - {{ pillar ['internet']['thunderbird'] }}
       - vlc

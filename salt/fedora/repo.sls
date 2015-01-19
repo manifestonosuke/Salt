@@ -7,13 +7,8 @@ fusion:
       - rpmfusion-free-release: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fv }}.noarch.rpm
 
 chromerepo:
-  pkgrepo.managed:
-    - humanname: Google Chrome
+  pkgrepo.absent:
     - name: Google-Chrome
-    - baseurl: http://dl.google.com/linux/chrome/rpm/stable/\$basearch
-    - gpgcheck: 1
-    - gpgkey: https://dl-ssl.google.com/linux/linux_signing_key.pub
-    - enabled: 1
 
 virtualboxrepo:
   pkgrepo.managed:
@@ -23,3 +18,12 @@ virtualboxrepo:
     - gpgcheck: 1
     - gpgkey: https://www.virtualbox.org/download/oracle_vbox.asc
     - enabled: 0
+
+chromiumrepo:
+  pkgrepo.managed:
+    - name : churchyard-chromium-russianfedora-tested
+    - humanname : "Copr repo for chromium-russianfedora-tested owned by churchyard"
+    - baseurl: http://copr-be.cloud.fedoraproject.org/results/churchyard/chromium-russianfedora-tested/fedora-$releasever-$basearch/
+    - skip_if_unavailable: True
+    - gpgcheck: 0
+    - enabled: 1

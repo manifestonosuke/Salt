@@ -5,29 +5,35 @@ kde:
     qtcurve: gtk2-engines-qtcurve
   {% endif %}
 
-browser:
+internet:
 {% if grains['os'] == 'Fedora' %}
   rekonq: rekonq
-  chromium: google-chrome-stable
+  chromium: chromium
   firefox: firefox
+  thunderbird: thunderbird
 {% elif grains['os_family'] == 'RedHat' -%}
   firefox: firefox
   chromium: chromium-browser
   rekonq: rekonq
+  thunderbird: thunderbird
 {% elif grains['os'] == 'Ubuntu' -%}
   firefox: firefox
-  chromium:chromium-browser
+  chromium: chromium-browser
   rekonq: rekonq
+  thunderbird: thunderbird
 {% elif grains['os'] == 'openSUSE' -%}
   firefox: MozillaFirefox
+  thunderbird: thunderbird
 chromium: chromium
 rekonq: rekonq
 {% elif grains['os_family'] == 'Debian' -%}
   firefox: iceweasel
+  thunderbird: icedove
   chromium: chromium
   rekonq: rekonq
 {% else %}
   firefox: firefox
+  thunderbird: thunderbird
   chromium: chromium-browser
   rekonq: rekonq
 {% endif %}
