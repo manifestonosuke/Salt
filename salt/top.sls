@@ -1,7 +1,4 @@
 base: 
-  'os:Fedora':
-    - match: grain
-    - fedora
   'type:work' :
     - match: grain
     - common
@@ -10,3 +7,7 @@ base:
     - match: grain
     - common
     - home
+  'os:Fedora':
+    - match: grain
+    - fedora
+    - order: 2

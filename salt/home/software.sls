@@ -5,7 +5,6 @@ dekstop:
       - amarok
       - skrooge
       - calibre
-      - rekonq
       - {{ pillar ['internet']['firefox'] }} 
       - {{ pillar ['internet']['chromium'] }}
       - keepassx

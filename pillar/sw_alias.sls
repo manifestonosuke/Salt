@@ -16,7 +16,7 @@ internet:
   chromium: chromium-browser
   rekonq: rekonq
   thunderbird: thunderbird
-{% elif grains['os'] == 'Ubuntu' -%}
+{% elif grains['os'] == 'Ubuntu' %}
   firefox: firefox
   chromium: chromium-browser
   rekonq: rekonq
@@ -26,11 +26,11 @@ internet:
   thunderbird: thunderbird
 chromium: chromium
 rekonq: rekonq
-{% elif grains['os_family'] == 'Debian' -%}
+{% elif grains['os_family'] == 'Debian' %}
+  rekonq: rekonq
   firefox: iceweasel
   thunderbird: icedove
   chromium: chromium
-  rekonq: rekonq
 {% else %}
   firefox: firefox
   thunderbird: thunderbird
