@@ -26,15 +26,15 @@ Plan to integrate OpenSuse but not very fan of this distro ...
 
 
 # Changes summary
-2015/11/12 : Change minion.conf to easily integrate to salt default dir.
-2015/11/11 : Start map.jinja to map distro specifics
-2015/10/29 : Large review of the code 
+- 2015/11/12 : Change minion.conf to easily integrate to salt default dir.
+- 2015/11/11 : Start map.jinja to map distro specifics
+- 2015/10/29 : Large review of the code 
   - Add etc/minion to execute with salt-call -c 
   - Large review of the code 
   - Need to review pillar and OS base definition
-2014/01/05 : choose this arch for now
-pillar will have 3 files type : 
+- 2014/01/05 : choose this arch for now
+- pillar will have 3 files type : 
   - setting.sls which is used to set manually data filesystem option (device/fs)
   - files to define alias for packages that changes between distro like firefox/apache ... 
   - general settings like groups or filename that change between distro
-2014/01/03 : reviewing global arch in pure dev stage
+- 2014/01/03 : reviewing global arch in pure dev stage
