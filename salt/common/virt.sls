@@ -1,5 +1,5 @@
-{% from "common/map.jinja" import virt with context %}
+{% from "map.jinja" import map with context %}
 
 vb:
   pkg.installed:
-    - name: {{ virt.virtualbox }}
+    - name: {{ map.virtualbox }}
