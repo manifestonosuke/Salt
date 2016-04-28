@@ -11,3 +11,9 @@ base:
     - match: grain
     - fedora
     - order: 2
+  'os:Ubuntu':
+    - match: grain
+    - ubuntu
+    - order: 2
+
+

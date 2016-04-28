@@ -1,3 +1,3 @@
 data: data
-datadev: /dev/sda4
+datadev: /dev/sda3
 

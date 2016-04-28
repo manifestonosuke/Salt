@@ -1,9 +1,9 @@
 grains:
-  type: home
+  type: work
 file_client: local
 file_roots:
   base:
-    - /data/Salt/salt
+    - /opt/Salt/salt
 pillar_roots:
   base:
-    - /data/Salt/pillar
+    - /opt/Salt/pillar

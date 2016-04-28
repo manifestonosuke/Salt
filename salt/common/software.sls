@@ -1,4 +1,8 @@
-#  sys: ['ncftp','rsync','git','sudo']
+{% set codename = salt['grains.get']('oscodename') %}
+{% if grains['os'] == 'Ubuntu' %}
+'deb http://archive.canonical.com/ubuntu {{ codename }} partner':
+  pkgrepo.managed
+{% endif %}
 
 sys-pkg:
   pkg:
@@ -9,16 +13,26 @@ sys-pkg:
       - fsarchiver
       - git
       - sudo
+      - tmux
+      - {{ pillar['vim'] }}
 
-internet_client:
+vpn-pkg:
   pkg:
     - installed
     - pkgs:
-      - {{ pillar['internet']['firefox'] }}
-      - {{ pillar['internet']['thunderbird'] }}
+      - network-manager-openconnect
+      - network-manager-openvpn
+      - network-manager-vpnc
 
+internet:
+  pkg:
+    - installed
+    - pkgs:
+      - {{ pillar['firefox'] }}
+      - {{ pillar['thunderbird'] }}
+      - skype
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:
   file.symlink:
     - target: /usr/share/applications/iceweasel.desktop

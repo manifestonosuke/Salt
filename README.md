@@ -5,14 +5,18 @@ A choice of profile based on type grain like
 grains:
   type: work
 '''
-Should be run locally after fresh install of minion 
-Change as this to run local :
-file_client: local
-Change file_root and pillar_root with your mount point.
-The main configuration file is in etc/minion.conf where you set type grains and salt/pillar root dir.
-Then copy the file on /etc/salt/minion.d and run to check  
-`salt-call  state.show_highstate`
-or to execute 
+
+A partition for extra filesystem for data (default /data) is needed in pillar/setting.sls.
+In this file change 
+data: data => to your partition (like home or what ever)
+datadev: /dev/sda4 => to your partitionfor thie extra fs
+
+To use the salt tree :
+copy Salt dir to /opt 
+salt-call --local -c /opt/Salt/etc/   state.show_highstate to verify.
+or just copy the /opt/Salt/etc/minion in /etc/salt/minion.d/minion
+Of course salt-minion needs to be installed.
+If everything is fine then run : 
 `salt-call  state.highstate`
 
 # Supported distro 
@@ -26,6 +30,8 @@ Plan to integrate OpenSuse but not very fan of this distro ...
 
 
 # Changes summary
+- 2016/04/29 : Revamp pillar, add ubuntu packages. Need to fix KDE to plasma stuff
+- 2015/11/12 : minion file should be called minion .. Add some softwarefor ubuntu.
 - 2015/11/12 : Change minion.conf to easily integrate to salt default dir.
 - 2015/11/11 : Start map.jinja to map distro specifics
 - 2015/10/29 : Large review of the code 

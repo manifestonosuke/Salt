@@ -20,7 +20,7 @@ local:
 
 pierre:
   user.present:
-    - uid: 2000
+    - uid: 10705
     - gid: local
     - home: /home/pierre
     - shell: /bin/bash

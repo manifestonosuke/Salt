@@ -1,5 +1,9 @@
 {% from "common/map.jinja" import virt with context %}
 
-vb:
+
+vbox:
   pkg.installed:
-    - name: {{ virt.virtualbox }}
+    - pkgs:
+      - {{ virt.virtualbox }}
+      - virtualbox-ext-pack
+      - vagrant
