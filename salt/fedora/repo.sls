@@ -6,10 +6,6 @@ fusion:
     - sources:
       - rpmfusion-free-release: http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fv }}.noarch.rpm
 
-chromerepo:
-  pkgrepo.absent:
-    - name: Google-Chrome
-
 virtualboxrepo:
   pkgrepo.managed:
     - humanname: Virtualbox
