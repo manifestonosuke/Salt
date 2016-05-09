@@ -1,3 +1,5 @@
+{% from "map.jinja" import map with context %}
+
 kde:
   pkg:
     - installed
@@ -6,9 +8,7 @@ kde:
       - kget
       - okular
       - konsole
-{% if grains['os'] == 'Debian' %}
-      - gtk2-engines-oxygen
-{% endif %}
+      - {{ map.kdegtkconfig }}
 
 {% if grains['os_family'] == 'Ubuntu' %}
 /usr/share/applications/konsole.desktop:
