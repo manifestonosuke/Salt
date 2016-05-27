@@ -38,7 +38,7 @@ rekonq: rekonq
 
 
 {% if grains['os_family'] == 'RedHat' %}
-vim: vim-enhanced
+vim: vim-minimal
 {% elif grains['os_family'] == 'Debian' %}
 vim: vim
 {% else %}

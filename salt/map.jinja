@@ -2,17 +2,21 @@
     'default': {
         'virtualbox': 'virtualbox',
         'kdegtkconfig': 'kde-gtk-config',
+	'chromium': 'chromium-browser',
     },
     'Debian': {
         'virtualbox': 'virtualbox-qt',
         'kdegtkconfig': 'kde-gtk-config',
+	'chromium': 'chromium-browser',
     },
     'Ubuntu': {
         'virtualbox': 'virtualbox-qt',
         'kdegtkconfig': 'gtk2-engines-oxygen',
+	'chromium': 'chromium-browser',
     },
     'RedHat': {
         'virtualbox': 'VirtualBox',
         'kdegtkconfig': 'kde-gtk-config',
+	'chromium': 'chromium-browser',
     },
 }, merge=salt['pillar.get']('map:lookup'), default='default') %}

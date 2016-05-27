@@ -17,14 +17,18 @@ local:
 /home/pierre:
   file.symlink:
     - target : /{{ pillar ['data'] }}/home/pierre
+    - makedirs: True
+
 
 pierre:
   user.present:
     - uid: 10705
     - gid: local
     - home: /home/pierre
+    - createhome: False
     - shell: /bin/bash
     - groups: 
       - local
       - {{ pillar ['sudogrp'] }}
       - adm
+

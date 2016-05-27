@@ -1,4 +1,7 @@
+{% from "map.jinja" import map with context %}
+
 {% set codename = salt['grains.get']('oscodename') %}
+
 {% if grains['os'] == 'Ubuntu' %}
 'deb http://archive.canonical.com/ubuntu {{ codename }} partner':
   pkgrepo.managed
@@ -31,6 +34,7 @@ internet:
       - {{ pillar['firefox'] }}
       - {{ pillar['thunderbird'] }}
       - skype
+      - {{ map.chromium }}
 
 {% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:

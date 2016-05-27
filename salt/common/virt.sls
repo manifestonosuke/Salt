@@ -6,4 +6,4 @@ vbox:
     - pkgs:
       - virtualbox-ext-pack
       - vagrant
-      - name: {{ map.virtualbox }}
+      - {{ map.virtualbox }}

@@ -9,3 +9,16 @@
       - gid: 4
       - system: True
 {% endif %}
+
+/data/local/bin:
+  file.directory:
+    - user: root
+    - group: local
+    - dir_mode: 755
+    - makedirs: True
+
+/data/env.d:
+  file.directory:
+    - user: root
+    - group: local
+    - dir_mode: 755

@@ -5,8 +5,5 @@ dekstop:
       - amarok
       - skrooge
       - calibre
-      - {{ pillar ['internet']['firefox'] }} 
-      - {{ pillar ['internet']['chromium'] }}
       - keepassx
-      - {{ pillar ['internet']['thunderbird'] }}
       - vlc

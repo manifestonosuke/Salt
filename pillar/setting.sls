@@ -1,3 +1,3 @@
 data: data
-datadev: /dev/sda3
+datadev: LABEL=data
 

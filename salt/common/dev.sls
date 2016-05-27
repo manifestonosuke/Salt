@@ -3,5 +3,12 @@ dev:
     - installed 
     - pkgs:
       - git
-      - {{ pillar['application']['vim'] }} 
+      - {{ pillar['vim'] }} 
 
+/data/local/bin/syncOS.py:
+  file.managed:
+    - source: https://github.com/manifestonosuke/Sysadm/blob/master/syncOS.py
+
+/data/local/bin/vb.py:
+  file.managed:
+    - source: https://github.com/manifestonosuke/Sysadm/blob/master/vb.py
