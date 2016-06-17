@@ -5,8 +5,12 @@ kde:
     - installed
     - pkgs:
       - kate
-      - kget
+      - {{ map.kget }}
+{% if grains['os'] == 'Arch' %}
+      - kdegraphics-okular
+{% else %} 
       - okular
+{% endif %}
       - konsole
       - {{ map.kdegtkconfig }}
 

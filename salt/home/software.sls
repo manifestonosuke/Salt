@@ -3,7 +3,6 @@ dekstop:
     - pkgs:
       - ktorrent
       - amarok
-      - skrooge
       - calibre
       - keepassx
       - vlc

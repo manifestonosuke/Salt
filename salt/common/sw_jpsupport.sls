@@ -5,7 +5,7 @@ jpsoft:
       - ibus 
       - ibus-anthy
 
-/{{ pillar ['data'] }}/env.d/scim.sh:
+/{{ pillar ['data'] }}/local/env.d/scim.sh:
   file.managed:
     - source: salt://home/scim.sh
 
@@ -26,7 +26,13 @@ jpfonts:
 jpfonts:
   pkg.installed:
     - pkgs :
-      - sazanami-fonts:
+      - sazanami-fonts
+{% elif grains['os'] == 'Arch' -%}
+jpfonts:
+  pkg.installed:
+    - pkgs :
+      - ttf-sazanami 
+      - otf-ipafont
 {% else %}
 jpfonts:
   pkg.installed:
