@@ -1,0 +1,81 @@
+# Check if shell is interactive either quit
+if [[ $- != *i* ]] ; then
+	return
+fi
+
+
+# init 
+stty erase ^?
+setterm -blength 0
+set -o ignoreeof
+
+
+# Env vars 
+export PS2=""
+export EDITOR=vi
+export PATH=/data/local/bin:/usr/sbin:/sbin:${PATH}
+export USER=${USER:=$(id | cut -d '(' -f 2 | cut -d ')' -f 1)}
+export EDITOR=vi
+export PAGER=more
+
+# OPTIONNAL
+PROXY=77.242.201.51
+PROXYUSER=""
+
+
+
+# General aliases 
+set -o emacs
+
+# Convenience aliases 
+alias src='source ~/.bashrc'
+alias vrc='vi  ~/.bashrc'
+alias mm="mysql -u root"
+alias un="unalias ls"
+alias S="ssh -l $USER"
+
+
+
+set -o ignoreeof
+
+# functions 
+#gps() { ps -edf | grep $1 | grep -v ps | grep -v grep ; }
+gps () { ps -e -o user:20,pid,ppid,c,stime,tty,cmd | grep $* | grep -v grep ; }
+
+
+function http () {
+if ${PROXY:=""};
+then 
+	echo "No proxy set"
+	exit	
+fi
+PROXY=77.242.201.51
+read -p "password : " -s  PASS
+export http_proxy="http://$PROXYUSER:$PASS@$PROXY:80/"
+export https_proxy="http://$PROXYUSER:$PASS@$PROXY:80/"
+wget -O /dev/null -q google.com
+if [ $? -ne 0 ];
+then
+        echo "cant access internet"
+fi
+}
+
+function sr (){
+if [ -x /usr/bin/sudo ] ; 
+then
+	sudo su - 
+else 
+	su -
+fi
+}
+
+
+# Vagrant
+export VAGRANT_CWD=/data/virt/Vagrant/
+
+alias tl="tmux ls"
+function tn() { tmux new -s $1; }
+function ta() { tmux attach -t $1; }
+
+function pd() { F=$1 ; shift ; A=$* ; pdsh -w^$F $A ; } 
+
