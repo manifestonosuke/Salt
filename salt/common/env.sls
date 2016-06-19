@@ -17,7 +17,7 @@
     - dir_mode: 755
     - makedirs: True
 
-/data/env.d:
+/{{ pillar ['data'] }}/local/end.d/:
   file.directory:
     - user: root
     - group: local
