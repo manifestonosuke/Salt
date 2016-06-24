@@ -6,6 +6,10 @@ packagekit:
   pkg:
    - removed
 
+dracut-config-rescue:
+  pkg:
+    - removed
+
 avahi-daemon:
   service:
    - disabled: True
@@ -18,6 +22,13 @@ abrtd:
   pkg:
    - removed
 
+all-abrtd:
+  pkg.removed:
+    - pkgs:
+      - abrt-addon-coredump-helper 
+      - abrt-gui-libs 
+      - abrt-libs
+
 garbage:
   pkg.removed:
     - pkgs:
@@ -25,9 +36,7 @@ garbage:
 
 
 ModemManager:
-  service:
-   - disabled: True
-   - dead
+  service.disabled
 
 net.ipv6.conf.all.disable_ipv6:
   sysctl.present:
@@ -41,4 +50,8 @@ net.ipv6.conf.lo.disable_ipv6:
   sysctl.present:
     - value: 1
 
+/etc/init.d/livesys:
+  file.absent
 
+/etc/init.d/livesys-late:
+  file.absent

@@ -1,6 +1,11 @@
 
 {% set  fv = grains.get('osrelease') %}
 
+mimic-yum:
+  cmd.run:
+    - name: ln -s /etc/dnf/dnf.conf /etc/yum.conf 
+    - unless: test -f /etc/yum.conf 
+
 fusion:
   pkg.installed:
     - sources:
