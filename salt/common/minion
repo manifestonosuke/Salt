@@ -1,0 +1,9 @@
+grains:
+  type: {{ salt['grains.get']('type') }}
+file_client: local
+file_roots:
+  base:
+    - /opt/Salt/salt
+pillar_roots:
+  base:
+    - /opt/Salt/pillar
