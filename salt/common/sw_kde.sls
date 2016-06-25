@@ -1,4 +1,4 @@
-{% from "map.jinja" import map with context %}
+{% from "common/map.jinja" import map with context %}
 
 kde:
   pkg:
@@ -13,6 +13,7 @@ kde:
 {% endif %}
       - konsole
       - {{ map.kdegtkconfig }}
+      - {{ map.gtk3breeze }}
 
 {% if grains['os_family'] == 'Ubuntu' %}
 /usr/share/applications/konsole.desktop:

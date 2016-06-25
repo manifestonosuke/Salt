@@ -22,3 +22,14 @@
     - user: root
     - group: local
     - dir_mode: 755
+
+/etc/salt/minion.d/:
+  file.directory
+
+
+/etc/salt/minion.d/minion:
+  file.managed:
+    - source: salt://common/minion
+    - template: jinja
+    - user: root
+    - perm: 755
