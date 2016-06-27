@@ -1,7 +1,10 @@
 
-/root/.bashrc:
-  file.append:
+/etc/profile.d/local.bashrc.sh:
+  file.managed:
     - source : salt://common/bashrc
+    - user: root
+    - group: local
+    - mode: 755
 
 {% if grains['os_family'] == 'Suse' -%}
   adm:
@@ -10,7 +13,7 @@
       - system: True
 {% endif %}
 
-/data/local/bin:
+{{ pillar ['data'] }}/local/bin:
   file.directory:
     - user: root
     - group: local
@@ -22,6 +25,23 @@
     - user: root
     - group: local
     - dir_mode: 755
+
+{{ pillar ['data'] }}/local/env.d/bashrc.root:
+  file.managed:
+    - source : salt://common/bashrc.root
+    - mode: 755
+    - user: root
+    - group: local
+
+{{ pillar ['data'] }}/local/env.d/bashrc.user:
+  file.managed:
+    - source : salt://common/bashrc.user
+    - mode: 755
+    - user: root
+    - group: local
+
+
+
 
 /etc/salt/minion.d/:
   file.directory

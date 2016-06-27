@@ -1,0 +1,111 @@
+#pierre local bashrc
+
+
+function xr {
+INT="LVDS1"
+EXT="VGA1"
+xrandr -q | grep -q "$EXT connected"
+
+if [ $? -eq 0 ] ;
+then
+xrandr --output $EXT --mode 1280x1024
+xrandr --output $INT --mode 1366x768
+xrandr --output $INT --right-of $EXT
+fi
+}
+
+function fixvirt {
+modprobe -r kvm-intel
+modprobe -r kvm-amd 
+}
+
+function fixnetman {
+service network-manager stop
+sleep 1 
+rm /var/lib/NetworkManager/NetworkManager.state
+service network-manager start
+}
+
+function usbpure {
+modprobe -vr ehci_hcd
+sleep 1 
+modprobe -v ehci_hcd
+}
+
+function netpure {
+while true ;  
+do
+for i in $(netstat -ant | grep SYN_RECV | gawk '{print $5}' | cut -d : -f 1  | sort) ; 
+do 
+iptables -L -n | egrep  -qw $i
+if [ $? -eq 0 ];
+then
+	echo "STILL $i"
+else
+	echo "DROP $i" 
+	iptables -I INPUT -s $i -j DROP
+fi
+done 
+echo  
+sleep 10 
+done
+}
+
+export PATH=/sbin:/usr/sbin:$PATH:/data/local/bin/
+export PS2=""
+export EDITOR=vi
+export PAGER=less
+export BASHRC=/data/local/env.d/bashrc.$(id -un)
+
+function vb {
+K=$(uname -r)
+insmod /lib/modules/$K/misc/vboxdrv.ko 
+insmod /lib/modules/$K/misc/vboxnetadp.ko 
+insmod /lib/modules/$K/misc/vboxvideo.ko 
+}
+
+alias c7="chmod 770"
+alias c0="chmod 000"
+alias mm="mysql -u root -p"
+alias vrc="vi $BASHRC"
+alias src=". $BASHRC"
+alias saltit="salt-call --local -c /srv/Salt/etc/"
+
+ww () {
+GGG=apache
+echo "Changing group to $GGG $PWD (^C to quit)"  
+read A 
+chgrp -R $GGG . 
+}
+
+V() { 
+REMOTE=192.168.0.$1
+ping -q -w 1 -c 1 $REMOTE > /dev/null 2>&1
+if [ $? -ne 0 ];
+then
+        echo "not responding $REMOTE"
+        return 1
+fi
+ssh root@$REMOTE
+}
+
+## grep /boot/vmlinuz-3.5.0-17-generic  /var/lib/dpkg/info/*.list
+
+function gps() {
+ps -edf | grep -i "$1" | grep -v grep
+}
+
+function ss() {
+F=$*
+EXT=$(date +%Y%m%d-%s)
+if [ ! -f "$F" ];
+then
+	echo "$F do not exist or is not plain file"
+fi
+FF=$(basename $F)
+cp $F $HOME/$FF.$EXT
+if [ $? -eq 0 ];
+then
+	echo "copie to $HOME/$F.$EXT done"
+fi
+}

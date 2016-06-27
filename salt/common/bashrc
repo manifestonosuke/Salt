@@ -1,5 +1,14 @@
-if [ -f /data/env.d/bashrc.root ] ;
+R=/data/local/env.d/
+if [ $(id -u) -eq 0 ] ;
 then
-    	. /data/env.d/bashrc.root
+        if [ -f $EDIR/bashrc.root ] ;
+        then
+        . $EDIR/bashrc.root
+        fi
+else
+        if [ -f $EDIR/bashrc.user ] ;
+        then
+        . $EDIR/bashrc.user
+        fi
 fi
 
