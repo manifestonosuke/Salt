@@ -13,7 +13,7 @@
       - system: True
 {% endif %}
 
-{{ pillar ['data'] }}/local/bin:
+/{{ pillar ['data'] }}/local/bin:
   file.directory:
     - user: root
     - group: local
@@ -26,14 +26,14 @@
     - group: local
     - dir_mode: 755
 
-{{ pillar ['data'] }}/local/env.d/bashrc.root:
+/{{ pillar ['data'] }}/local/env.d/bashrc.root:
   file.managed:
     - source : salt://common/bashrc.root
     - mode: 755
     - user: root
     - group: local
 
-{{ pillar ['data'] }}/local/env.d/bashrc.user:
+/{{ pillar ['data'] }}/local/env.d/bashrc.user:
   file.managed:
     - source : salt://common/bashrc.user
     - mode: 755
