@@ -11,7 +11,7 @@ kde:
 {% else %} 
       - okular
 {% endif %}
-      - konsole
+      - {{ map.konsole }}
       - {{ map.kdegtkconfig }}
       - {{ map.gtk3breeze }}
 
