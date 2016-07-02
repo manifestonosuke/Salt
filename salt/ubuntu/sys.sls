@@ -16,6 +16,7 @@ garbage:
   pkg.removed:
     - pkgs:
       - openssh-askpass
+      - whoopsie
 
 geoip-bin:
   pkg.installed
