@@ -33,8 +33,13 @@ internet:
     - pkgs:
       - {{ pillar['firefox'] }}
       - {{ pillar['thunderbird'] }}
-      - skype
       - {{ map.chromium }}
+
+internet_closed:
+  pkg:
+    - installed
+    - pkgs:
+      - skype
 
 {% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:
@@ -44,3 +49,4 @@ internet:
   file.symlink:
     - target: /usr/share/applications/icedove.desktop
 {% endif %}
+

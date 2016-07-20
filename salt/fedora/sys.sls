@@ -33,6 +33,7 @@ garbage:
   pkg.removed:
     - pkgs:
       - openssh-askpass
+      - mcelog
 
 
 ModemManager:
@@ -43,3 +44,18 @@ ModemManager:
 
 /etc/init.d/livesys-late:
   file.absent
+
+gssproxy:
+  service:
+   - disabled: True
+   - dead
+
+dnf-makecache:
+  service:
+   - disabled: True
+   - dead
+
+proc-fs-nfsd.mount:
+  service:
+   - disabled: True
+   - dead
