@@ -47,7 +47,7 @@
   file.directory
 
 
-/etc/salt/minion.d/minion:
+/etc/salt/minion.d/minion.conf:
   file.managed:
     - source: salt://common/minion
     - template: jinja
