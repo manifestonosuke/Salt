@@ -6,7 +6,6 @@ fi
 
 # init 
 stty erase ^?
-setterm -blength 0
 set -o ignoreeof
 
 
