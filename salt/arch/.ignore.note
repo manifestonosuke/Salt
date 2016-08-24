@@ -1,0 +1,3 @@
+remove abrt package not abtrd
+pillariser/jinjaiser NetworkManager-openvpn
+echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf

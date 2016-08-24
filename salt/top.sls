@@ -15,5 +15,9 @@ base:
     - match: grain
     - ubuntu
     - order: 2
+  'os:Arch':
+    - match: grain
+    - arch
+    - order: 2
 
 
