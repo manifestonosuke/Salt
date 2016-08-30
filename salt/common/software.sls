@@ -35,12 +35,6 @@ internet:
       - {{ pillar['thunderbird'] }}
       - {{ map.chromium }}
 
-internet_closed:
-  pkg:
-    - installed
-    - pkgs:
-      - skype
-
 {% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:
   file.symlink:
