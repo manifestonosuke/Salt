@@ -4,4 +4,3 @@ base:
     - sw_alias
     - files
     - group
-

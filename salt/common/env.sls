@@ -1,3 +1,5 @@
+{% from "common/map.jinja" import map with context %}
+{% set data = pillar ['data'] %}
 
 /etc/profile.d/local.bashrc.sh:
   file.managed:
@@ -13,27 +15,27 @@
       - system: True
 {% endif %}
 
-/{{ pillar ['data'] }}/local/bin:
+{{ data }}/local/bin:
   file.directory:
     - user: root
     - group: local
     - dir_mode: 755
     - makedirs: True
 
-/{{ pillar ['data'] }}/local/end.d/:
+{{ data }}/local/end.d/:
   file.directory:
     - user: root
     - group: local
     - dir_mode: 755
 
-/{{ pillar ['data'] }}/local/env.d/bashrc.root:
+{{ data }}/local/env.d/bashrc.root:
   file.managed:
     - source : salt://common/bashrc.root
     - mode: 755
     - user: root
     - group: local
 
-/{{ pillar ['data'] }}/local/env.d/bashrc.user:
+{{ data }}/local/env.d/bashrc.user:
   file.managed:
     - source : salt://common/bashrc.user
     - mode: 755

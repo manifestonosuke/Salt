@@ -17,6 +17,7 @@ sys-pkg:
       - git
       - sudo
       - tmux
+      - wget
       - {{ pillar['vim'] }}
 
 vpn-pkg:

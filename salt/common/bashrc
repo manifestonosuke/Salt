@@ -1,4 +1,4 @@
-R=/data/local/env.d/
+EDIR=/data/local/env.d/
 if [ $(id -u) -eq 0 ] ;
 then
         if [ -f $EDIR/bashrc.root ] ;

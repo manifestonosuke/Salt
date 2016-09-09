@@ -3,7 +3,7 @@ grains:
 file_client: local
 file_roots:
   base:
-    - /{{ pillar ['data'] }}/Salt/salt
+    - {{ pillar ['data'] }}/Salt/salt
 pillar_roots:
   base:
-    - /{{ pillar ['data'] }}/Salt/pillar
+    - {{ pillar ['data'] }}/Salt/pillar

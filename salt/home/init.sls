@@ -1,5 +1,4 @@
 include:
-  - .user
   - .software
   - common.dev
   - common.sw_jpsupport

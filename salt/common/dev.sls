@@ -1,3 +1,6 @@
+{% set data = pillar ['data'] %}
+{% set localbin = "/data/local/bin" %}
+
 dev:
   pkg:
     - installed 
@@ -5,10 +8,14 @@ dev:
       - git
       - {{ pillar['vim'] }} 
 
-/data/local/bin/syncOS.py:
-  file.managed:
-    - source: https://github.com/manifestonosuke/Sysadm/blob/master/syncOS.py
+syncOS.py:
+  cmd.run:
+    - name: wget -P {{ localbin }} https://github.com/manifestonosuke/Sysadm/blob/master/syncOS.py
 
-/data/local/bin/vb.py:
-  file.managed:
-    - source: https://github.com/manifestonosuke/Sysadm/blob/master/vb.py
+vb.py:
+  cmd.run:
+    - name: wget -P {{ localbin }} https://github.com/manifestonosuke/Sysadm/blob/master/vb.py
+
+blk:
+  cmd.run:
+    - name: wget -P {{ localbin }} https://raw.githubusercontent.com/manifestonosuke/Home/master/blk
