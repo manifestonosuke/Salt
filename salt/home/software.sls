@@ -1,3 +1,5 @@
+{% from "mm.jinja" import mm with context %}
+
 dekstop:
   pkg.installed:
     - pkgs:
@@ -6,3 +8,4 @@ dekstop:
       - calibre
       - keepassx
       - vlc
+      - {{ mm.avidemuxqt }}

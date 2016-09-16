@@ -42,9 +42,6 @@
     - user: root
     - group: local
 
-
-
-
 /etc/salt/minion.d/:
   file.directory
 
@@ -55,3 +52,7 @@
     - template: jinja
     - user: root
     - perm: 755
+
+/root/.tmux.conf:
+  file.managed:
+    - source: salt://common/tmux.conf

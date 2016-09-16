@@ -1,4 +1,4 @@
-{% from "map.jinja" import map with context %}
+{% from "sw.jinja" import sw with context %}
 
 {% set codename = salt['grains.get']('oscodename') %}
 
@@ -18,7 +18,7 @@ sys-pkg:
       - sudo
       - tmux
       - wget
-      - {{ pillar['vim'] }}
+      - {{ sw.vim }}
 
 vpn-pkg:
   pkg:
@@ -32,9 +32,9 @@ internet:
   pkg:
     - installed
     - pkgs:
-      - {{ pillar['firefox'] }}
-      - {{ pillar['thunderbird'] }}
-      - {{ map.chromium }}
+      - {{ sw.firefox }}
+      - {{ sw.thunderbird }}
+      - {{ sw.chromium }}
 
 {% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:

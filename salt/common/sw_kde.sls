@@ -1,19 +1,20 @@
-{% from "common/map.jinja" import map with context %}
+{% from "kde.jinja" import kde with context %}
 
 kde:
   pkg:
     - installed
     - pkgs:
       - kate
-      - {{ map.kget }}
+      - {{ kde.kget }}
 {% if grains['os'] == 'Arch' %}
       - kdegraphics-okular
 {% else %} 
       - okular
 {% endif %}
-      - {{ map.konsole }}
-      - {{ map.kdegtkconfig }}
-      - {{ map.gtk3breeze }}
+      - {{ kde.konsole }}
+      - {{ kde.kdegtkconfig }}
+      - {{ kde.gtk3breeze }}
+      - {{ kde.qtcurve }}
 
 {% if grains['os_family'] == 'Ubuntu' %}
 /usr/share/applications/konsole.desktop:

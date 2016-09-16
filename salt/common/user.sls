@@ -16,7 +16,7 @@ local:
 
 /home/pierre:
   file.symlink:
-    - target : {{ ['data'] }}/home/pierre
+    - target : {{ pillar ['data'] }}/home/pierre
     - makedirs: True
 
 
@@ -27,6 +27,7 @@ pierre:
     - home: /home/pierre
     - createhome: False
     - shell: /bin/bash
+    - password: $6$LTummqhg$QzvLKO7CGfUZBPXaNZUwXQwMUXN8YkUysY3lctm4VZPigGyWhwL86dUp68OupUDSoxXcYCHJbFzLqFZuEWGjS/
     - groups: 
       - local
       - {{ pillar ['sudogrp'] }}

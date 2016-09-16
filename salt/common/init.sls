@@ -3,3 +3,4 @@ include:
   - .software
   - .virt
   - .sys
+  - .user
