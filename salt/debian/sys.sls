@@ -5,13 +5,6 @@ avahi-daemon:
    - disabled: True
    - dead
 
-abrtd:
-  service:
-   - disabled: True
-   - dead
-  pkg:
-   - removed
-
 garbage:
   pkg.removed:
     - pkgs:
@@ -26,15 +19,26 @@ ModemManager:
    - disabled: True
    - dead
 
-{% set debrel = app_defaults.get(salt.grains.get('lsb_distrib_id') %}
+{% set debrel = salt['grains.get']('lsb_distrib_codename') %}
 multimedia:
   pkgrepo.managed:
     - humanname: deb-multimedia
     - name: deb http://www.deb-multimedia.org debrel main
+    - dist: {{ debrel }}
     - file: /etc/apt/sources.list.d/deb-multimedia.list
-    - key_url: salt://deb-multimedia/files/marillat.pub
 
-multkeyring:
-  pkg.installed:
+deb-multimedia-keyring::
+  pkg.latest:
     - name: deb-multimedia-keyring
-    - skip_verify: True
+    - skip_verify: true
+    - refresh: true
+
+/etc/apt/preferences.d/deb-multimedia.conf:
+  file.managed:
+    - contents: |
+        Package: *
+        Pin: origin *.deb-multimedia.org
+        Pin-Priority: $dmo_priority
+    - owner: root
+    - group: root
+    - mode: 644

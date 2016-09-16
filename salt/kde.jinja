@@ -1,10 +1,15 @@
 {% set kde = salt['grains.filter_by']({
-    'default': {
+    'Linux': {
         'gtk3breeze': 'gtk3-engines-breeze',
-        'kdegtkconfig': 'kde-gtk-config',
         'kget': 'kget',
         'konsole': 'konsole',
-    },
+	'qtcurve': 'kde-style-qtcurve-qt5',
+     },
+}, grain='kernel', merge=salt['pillar.get']('kde'))%}
+
+
+
+{% set kde = salt['grains.filter_by']({
     'Debian': {
         'gtk3breeze': 'gtk3-engines-breeze',
         'kdegtkconfig': 'kde-config-gtk-style',
@@ -28,6 +33,6 @@
         'kdegtkconfig': 'kde-gtk-config',
         'kget': 'kdenetwork-kget',
         'konsole': 'konsole',
-	'qtcurve': 'qtcurve-qt5'
+	'qtcurve': 'qtcurve-qt5',
     },
-}, grain="os", merge=salt['pillar.get']('kde:lookup'),default='default') %}
+}, grain="os", merge=kde) %}

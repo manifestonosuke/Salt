@@ -24,4 +24,3 @@ kde:
   file.symlink:
     - target: /usr/share/applications/dolphin.desktop
 {% endif %}
-
