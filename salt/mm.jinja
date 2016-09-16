@@ -1,0 +1,18 @@
+{% set mm = salt['grains.filter_by']({
+    'Linux': {
+        'avidemuxqt': 'avidemux-qt',
+     },
+}, grain='kernel', merge=salt['pillar.get']('mm'))%}
+
+
+{% set map = salt['grains.filter_by']({
+    'Ubuntu': {
+        'avidemux-qt': 'avidemux-qt',
+    },
+    'Debian': {
+    },
+    'RedHat': {
+    },
+    'Arch': {
+    },
+},  grain="os", merge=salt['pillar.get']('mm')) %}

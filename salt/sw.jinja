@@ -1,0 +1,36 @@
+{% set sw = salt['grains.filter_by']({
+    'Linux': {
+        'virtualbox': 'virtualbox',
+        'chromium': 'chromium',
+        'firefox': 'firefox',
+        'thunderbird': 'thunderbird',
+	'vim': 'vim',
+	'apache': 'apache',
+     },
+}, grain='kernel', merge=salt['pillar.get']('sw'))%}
+
+
+{% set map = salt['grains.filter_by']({
+    'Ubuntu': {
+        'virtualbox': 'virtualbox-qt',
+        'chromium': 'chromium-browser',
+    },
+    'Debian': {
+        'virtualbox': 'virtualbox-qt',
+        'chromium': 'chromium',
+        'thunderbird': 'icedove',
+        'firefox': 'firefox-esr',
+	'apache': 'apache2',
+    },
+    'RedHat': {
+        'virtualbox': 'VirtualBox',
+        'firefox': 'firefox',
+        'chromium': 'chromium',
+	'vim': 'vim-minimal',
+	'apache': 'httpd',
+    },
+    'Arch': {
+        'chromium': 'chromium',
+        'virtualbox': 'virtualbox',
+    },
+},  grain="os", merge=salt['pillar.get']('sw')) %}
