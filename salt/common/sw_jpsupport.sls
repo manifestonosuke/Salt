@@ -27,6 +27,17 @@ jpfonts:
   pkg.installed:
     - pkgs :
       - sazanami-fonts
+{% elif grains['os'] == 'Debian' -%}
+jpfonts:
+  pkg.installed:
+    - pkgs :
+      - fonts-sawarabi-mincho
+      - fonts-seto
+      - fonts-takao
+      - fonts-takao-gothic
+      - fonts-takao-mincho
+
+
 {% elif grains['os'] == 'Arch' -%}
 jpfonts:
   pkg.installed:
