@@ -24,9 +24,15 @@ vpn-pkg:
   pkg:
     - installed
     - pkgs:
+{% if grains['os'] == 'Arch' %}
+      - networkmanager-openconnect
+      - networkmanager-openvpn
+      - networkmanager-vpnc
+{% else %}
       - network-manager-openconnect
       - network-manager-openvpn
       - network-manager-vpnc
+{% endif %}
 
 internet:
   pkg:

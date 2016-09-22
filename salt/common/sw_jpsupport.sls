@@ -27,7 +27,7 @@ jpfonts:
   pkg.installed:
     - pkgs :
       - sazanami-fonts
-{% elif grains['os'] == 'Debian' -%}
+{% elif grains['os_family'] == 'Debian' -%}
 jpfonts:
   pkg.installed:
     - pkgs :
