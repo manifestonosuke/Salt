@@ -1,4 +1,3 @@
-{% from "map.jinja" import map with context %}
 
 avahi-daemon:
   service:
@@ -20,6 +19,23 @@ ModemManager:
    - dead
 
 {% set debrel = salt['grains.get']('lsb_distrib_codename') %}
+
+{% if debrel == "sid" %}
+security:
+  pkgrepo.absent:
+    - name:  http://security.debian.org/ {{ debrel }}/updates main
+update:
+  pkgrepo.absent:
+    - name:  http://ftp.tsukuba.wide.ad.jp/debian/ {{debrel}}-updates main
+{% else %}
+security:
+  pkgrepo.managed:
+    - name:  http://security.debian.org/ {{ debrel }}/updates main
+update:
+  pkgrepo.managed:
+    - name:  http://ftp.tsukuba.wide.ad.jp/debian/ {{debrel}}-updates main
+{% endif %}
+
 multimedia:
   pkgrepo.managed:
     - humanname: deb-multimedia
@@ -27,7 +43,7 @@ multimedia:
     - dist: {{ debrel }}
     - file: /etc/apt/sources.list.d/deb-multimedia.list
 
-deb-multimedia-keyring::
+deb-multimedia-keyring:
   pkg.latest:
     - name: deb-multimedia-keyring
     - skip_verify: true
@@ -42,3 +58,7 @@ deb-multimedia-keyring::
     - owner: root
     - group: root
     - mode: 644
+
+/usr/share/applications/chromium-browser.desktop:
+  file.symlink:
+    - target: /usr/share/applications/chromium.desktop 

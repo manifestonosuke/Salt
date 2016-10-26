@@ -33,3 +33,6 @@ net.ipv6.conf.ens5.disable_ipv6:
     - pattern: ^#?DefaultTimeoutStopSec=.* 
     - repl: DefaultTimeoutStopSec=15s
 {% endif %}
+
+stream:
+  pkg.removed

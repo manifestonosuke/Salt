@@ -78,3 +78,4 @@ function ta() { tmux attach -t $1; }
 
 function pd() { F=$1 ; shift ; A=$* ; pdsh -w^$F $A ; } 
 
+alias anki=/data/apps/anki/runanki

@@ -1,4 +1,4 @@
 include:
   - fedora.repo
   - fedora.sys
-  - .fix
+  - fedora.fix

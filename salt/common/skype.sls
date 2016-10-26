@@ -8,6 +8,7 @@ skype:
     - name: deb http://archive.canonical.com/ubuntu {{ grains['oscodename'] }} partner
     - file: /etc/apt/sources.list
     - consolidate: True
+    - disabled: False
   pkg.installed:
     - name: skype
 {% endif %}

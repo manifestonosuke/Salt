@@ -1,4 +1,3 @@
-{% from "map.jinja" import map with context %}
 
 avahi-daemon:
   service:
@@ -7,3 +6,7 @@ avahi-daemon:
 
 ModemManager:
   service.disabled
+
+/usr/share/applications/chromium-browser.desktop:
+  file.symlink:
+    - target:  /usr/share/applications/chromium.desktop

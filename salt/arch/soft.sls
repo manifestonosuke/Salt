@@ -1,4 +1,3 @@
-{% from "map.jinja" import map with context %}
 basic:
   pkg.installed:
     - pkgs:

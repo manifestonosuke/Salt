@@ -1,4 +1,3 @@
-{% from "common/map.jinja" import map with context %}
 {% set data = pillar ['data'] %}
 
 /etc/profile.d/local.bashrc.sh:

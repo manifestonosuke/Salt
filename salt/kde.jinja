@@ -1,27 +1,25 @@
-{% set kde = salt['grains.filter_by']({
-    'Def': {
-        'gtk3breeze': 'gtk3-engines-breeze',
-        'kget': 'kget',
-        'konsole': 'konsole',
-        'qtcurve': 'kde-style-qtcurve-qt5',
-        'kdegtkconfig': 'gtk2-engines-oxygen',
-     },
+
+
+{% set kw = salt['grains.filter_by']({
     'Debian': {
         'gtk3breeze': 'gtk3-engines-breeze',
         'kdegtkconfig': 'kde-config-gtk-style',
         'kget': 'kget',
         'konsole': 'konsole',
+        'qtcurve': 'kde-style-qtcurve-qt5',
     },
     'Ubuntu': {
         'gtk3breeze': 'gtk3-engines-breeze',
         'kdegtkconfig': 'gtk2-engines-oxygen',
         'kget': 'kget',
         'konsole': 'konsole',
+        'qtcurve': 'kde-style-qtcurve-qt5',
     },
     'Fedora': {
         'gtk3breeze': 'breeze-gtk',
         'kdegtkconfig': 'kde-gtk-config',
         'kget': 'kget',
+        'qtcurve': 'qtcurve-qt5',
         'konsole' : 'konsole5',
     },
     'Arch': {
@@ -32,7 +30,4 @@
         'konsole' : 'konsole',
     },
 
-},
-grain='os',
-default='Def'
-)%}
+}, grain='os')%}

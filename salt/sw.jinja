@@ -1,12 +1,3 @@
-{% set sw = salt['grains.filter_by']({
-    'Linux': {
-        'virtualbox': 'virtualbox',
-        'chromium': 'chromium',
-	'vim': 'vim',
-	'apache': 'apache',
-     },
-}, grain='kernel', merge=salt['pillar.get']('sw'))%}
-
 
 {% set sw = salt['grains.filter_by']({
     'Ubuntu': {
@@ -14,28 +5,31 @@
         'chromium': 'chromium-browser',
         'firefox': 'firefox',
         'thunderbird': 'thunderbird',
+        'vim': 'vim',
     },
     'Debian': {
         'virtualbox': 'virtualbox-qt',
         'chromium': 'chromium',
         'thunderbird': 'icedove',
         'firefox': 'firefox-esr',
-	'apache': 'apache2',
+        'apache': 'apache2',
+        'vim': 'vim',
     },
     'Fedora': {
-        'virtualbox': 'VirtualBox',
+        'virtualbox': 'VirtualBox-5.1',
         'firefox': 'firefox',
         'chromium': 'chromium',
-	'vim': 'vim-minimal',
-	'apache': 'httpd',
+        'vim': 'vim-minimal',
+        'apache': 'httpd',
         'firefox': 'firefox',
         'thunderbird': 'thunderbird',
+        'vim': 'vim-enhanced',
     },
     'Arch': {
         'chromium': 'chromium',
-        'virtualbox': 'virtualbox',
         'firefox': 'firefox',
         'thunderbird': 'thunderbird',
+        'vim': 'vim'
     },
-},  grain="os", merge=sw) %}
+},grain="os" )%}
 

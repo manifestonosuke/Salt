@@ -28,6 +28,10 @@ vpn-pkg:
       - networkmanager-openconnect
       - networkmanager-openvpn
       - networkmanager-vpnc
+{% elif grains['os'] == 'Fedora' %}
+      - NetworkManager-openconnect
+      - NetworkManager-openvpn 
+      - NetworkManager-vpnc
 {% else %}
       - network-manager-openconnect
       - network-manager-openvpn

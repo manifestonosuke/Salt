@@ -1,4 +1,3 @@
-{% from "map.jinja" import map with context %}
 packagekit:
   service:
    - disabled: True
@@ -56,6 +55,21 @@ dnf-makecache:
    - dead
 
 proc-fs-nfsd.mount:
+  service:
+   - disabled: True
+   - dead
+
+firewalld.service:
+  service:
+   - disabled: True
+   - dead
+
+dnf-makecache.service:
+  service:
+   - disabled: True
+   - dead
+
+unbound-anchor.service:
   service:
    - disabled: True
    - dead

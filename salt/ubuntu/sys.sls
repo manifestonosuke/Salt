@@ -1,4 +1,3 @@
-{% from "map.jinja" import map with context %}
 
 avahi-daemon:
   service:
