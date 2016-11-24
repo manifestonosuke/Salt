@@ -23,5 +23,9 @@ base:
     - match: grain
     - arch
     - order: 2
+  'os:SUSE':
+    - match: grain
+    - arch
+    - order: 2
 
 

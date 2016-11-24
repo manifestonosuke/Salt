@@ -9,6 +9,8 @@ garbage:
     - pkgs:
       - openssh-askpass
       - whoopsie
+      - at-spi2-core
+      - packagekit
 
 geoip-bin:
   pkg.installed

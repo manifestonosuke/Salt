@@ -28,7 +28,7 @@ vpn-pkg:
       - networkmanager-openconnect
       - networkmanager-openvpn
       - networkmanager-vpnc
-{% elif grains['os'] == 'Fedora' %}
+{% elif grains['os'] in '(Fedora|SUSE)' %}
       - NetworkManager-openconnect
       - NetworkManager-openvpn 
       - NetworkManager-vpnc

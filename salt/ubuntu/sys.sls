@@ -4,18 +4,11 @@ avahi-daemon:
    - disabled: True
    - dead
 
-abrtd:
-  service:
-   - disabled: True
-   - dead
-  pkg:
-   - removed
-
 garbage:
   pkg.removed:
     - pkgs:
-      - openssh-askpass
       - whoopsie
+      - whoopsie-preferences
 
 geoip-bin:
   pkg.installed

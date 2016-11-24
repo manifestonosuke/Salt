@@ -34,5 +34,11 @@ net.ipv6.conf.ens5.disable_ipv6:
     - repl: DefaultTimeoutStopSec=15s
 {% endif %}
 
-stream:
-  pkg.removed
+garbage common:
+  pkg.removed:
+    - pkgs:
+      - steam
+      - openssh-askpass
+
+/etc/kernel/postinst.d/zz-update-grub:
+  file.absent
