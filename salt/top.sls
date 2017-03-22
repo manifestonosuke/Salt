@@ -25,7 +25,7 @@ base:
     - order: 2
   'os:SUSE':
     - match: grain
-    - arch
+    - suse
     - order: 2
 
 

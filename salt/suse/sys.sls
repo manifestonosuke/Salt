@@ -5,6 +5,10 @@ packagekit:
   pkg:
    - removed
 
+/usr/share/sddm/scripts/Xsetup:
+  file.append:
+    - text: setxkbmap fr
+
 dracut-config-rescue:
   pkg:
     - removed
@@ -34,7 +38,6 @@ garbage:
       - openssh-askpass
       - mcelog
 
-
 ModemManager:
   service.disabled
 
@@ -44,42 +47,29 @@ ModemManager:
 /etc/init.d/livesys-late:
   file.absent
 
-gssproxy:
-  service:
-   - disabled: True
-   - dead
-
-dnf-makecache:
-  service:
-   - disabled: True
-   - dead
-
-proc-fs-nfsd.mount:
-  service:
-   - disabled: True
-   - dead
-
 firewalld.service:
   service:
    - disabled: True
    - dead
 
-unbound-anchor.service:
-  service:
-   - disabled: True
-   - dead
+/etc/sudoers:
+  file.uncomment:
+    - regex: ^ *%wheel
 
-colord.service:
-  service:
-   - disabled: True
-   - dead
+fix sudoers:
+  file.comment:
+    - name: /etc/sudoers
+    - regex: ^.*NOPASS
 
-dnf-makecache.service:
-  service:
-   - disabled: True
-   - dead
+fix sudoers2:
+  file.comment:
+    - name: /etc/sudoers
+    - regex: Defaults targetpw
+   
 
-avahi-daemon.service:
-  service:
-    - disabled: True
-    - dead
+gtk3-metatheme-breeze:
+  pkg.installed
+
+/etc/modprobe.d/50-blacklist.conf:
+  file.append:
+    - text: blacklist nouveau
