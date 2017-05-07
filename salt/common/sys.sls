@@ -6,6 +6,7 @@ syspkg:
       - tcpdump
       - dstat
       - iftop
+      - powertop
 
 net.ipv6.conf.all.disable_ipv6:
   sysctl.present:

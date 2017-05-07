@@ -23,3 +23,7 @@ unity-tweak-tool:
     - installed
     - onlyif: 
       - dpkg -s unity
+
+/usr/share/applications/chromium.desktop:
+  file.symlink:
+    - target:  /usr/share/applications/chromium-browser.desktop
