@@ -1,3 +1,4 @@
+
 local:
   group.present:
     - gid : 10000
@@ -14,17 +15,13 @@ local:
     - persist: True
     - mount: True
 
-/home/pierre:
-  file.symlink:
-    - target : {{ pillar ['data'] }}/home/pierre
-    - makedirs: True
 
 
 pierre:
   user.present:
     - uid: 10705
     - gid: local
-    - home: /home/pierre
+    - home: {{ pillar ['data'] }}/home/pierre
     - createhome: False
     - shell: /bin/bash
     - password: $6$LTummqhg$QzvLKO7CGfUZBPXaNZUwXQwMUXN8YkUysY3lctm4VZPigGyWhwL86dUp68OupUDSoxXcYCHJbFzLqFZuEWGjS/
@@ -33,3 +30,8 @@ pierre:
       - {{ pillar ['sudogrp'] }}
       - adm
 
+
+/home/pierre:
+  file.symlink:
+    - target : {{ pillar ['data'] }}/home/pierre
+    - makedirs: True

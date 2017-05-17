@@ -4,6 +4,7 @@ jpsoft:
     - pkgs :
       - ibus 
       - ibus-anthy
+      - ibus-qt
 
 /{{ pillar ['data'] }}/local/env.d/scim.sh:
   file.managed:

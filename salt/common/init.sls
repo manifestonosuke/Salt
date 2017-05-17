@@ -1,6 +1,6 @@
 include:
-  - .env
   - .user
+  - .env
   - .software
   - .virt
   - .sys

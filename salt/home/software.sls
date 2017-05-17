@@ -8,4 +8,6 @@ dekstop:
       - calibre
       - keepassx
       - vlc
-      - {{ mm.avidemuxqt }}
+try avidemux:
+  pkg.installed:
+    - name: {{ mm.avidemuxqt }}

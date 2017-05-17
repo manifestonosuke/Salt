@@ -21,7 +21,13 @@
     - dir_mode: 755
     - makedirs: True
 
-{{ data }}/local/end.d/:
+{{ data }}/local/env.d/:
+  file.directory:
+    - user: root
+    - group: local
+    - dir_mode: 755
+
+{{ data }}/home/:
   file.directory:
     - user: root
     - group: local
