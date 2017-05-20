@@ -49,7 +49,7 @@ internet:
 {% if grains['osfullname'] == 'Debian' %}
 /usr/share/applications/firefox.desktop:
   file.symlink:
-    - target: /usr/share/applications/iceweasel.desktop
+    - target: /usr/share/applications/firefox-esr.desktop 
 /usr/share/applications/thunderbird.desktop:
   file.symlink:
     - target: /usr/share/applications/icedove.desktop
