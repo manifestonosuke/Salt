@@ -6,3 +6,7 @@
   file.symlink:
     - target:  /usr/share/applications/chromium-browser.desktop
 
+
+/usr/share/applications/chromium-browser-chromium.desktop:
+  file.symlink:
+    - target:  /usr/share/applications/chromium-browser.desktop

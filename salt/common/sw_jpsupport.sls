@@ -1,10 +1,17 @@
 
-jpsoft:
+ibus-base:
   pkg.installed:
     - pkgs :
-      - ibus 
+      - ibus
       - ibus-anthy
-      - ibus-qt
+      - ibus-qt 
+
+ibus-sup:
+  pkg.installed:
+    - pkgs :
+      - ibus-qt4
+      - ibus-gtk3
+      - ibus-gtk
 
 /{{ pillar ['data'] }}/local/env.d/scim.sh:
   file.managed:

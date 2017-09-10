@@ -16,17 +16,12 @@ net.ipv6.conf.default.disable_ipv6:
  sysctl.present:
   - value: 1
  
-net.ipv6.conf.lo.disable_ipv6:
+{% for iface in salt['grains.get']('ip6_interfaces') %}
+net.ipv6.conf.{{iface}}.disable_ipv6:
   sysctl.present:
     - value: 1
+{% endfor %}
 
-net.ipv6.conf.wls1.disable_ipv6:
-  sysctl.present:
-    - value: 1
-
-net.ipv6.conf.ens5.disable_ipv6:
-  sysctl.present:
-    - value: 1
 
 {% if grains['init'] == 'systemd' %}
 /etc/systemd/system.conf:
