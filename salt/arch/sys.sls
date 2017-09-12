@@ -4,6 +4,16 @@ avahi-daemon:
    - disabled: True
    - dead
 
+networkmanager:
+  pkg.installed
+
+NetworkManager:
+  service.enabled
+
+kate:
+  pkg.installed
+
+
 ModemManager:
   service.disabled
 
