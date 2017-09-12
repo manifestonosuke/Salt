@@ -24,3 +24,15 @@ kde:
   file.symlink:
     - target: /usr/share/applications/dolphin.desktop
 {% endif %}
+
+plamsa base:
+  pkg.installed:
+    - pkgs:
+      - breeze
+      - sddm
+
+/etc/sddm.conf:
+  file.replace:
+    - pattern: Current=.*
+    - repl: Current=breeze
+
