@@ -52,20 +52,10 @@ firewalld.service:
    - disabled: True
    - dead
 
-/etc/sudoers:
-  file.uncomment:
-    - regex: ^ *%wheel
-
-fix sudoers:
-  file.comment:
-    - name: /etc/sudoers
-    - regex: ^.*NOPASS
-
 fix sudoers2:
   file.comment:
     - name: /etc/sudoers
     - regex: Defaults targetpw
-   
 
 gtk3-metatheme-breeze:
   pkg.installed

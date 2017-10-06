@@ -38,3 +38,18 @@ garbage common:
 
 /etc/kernel/postinst.d/zz-update-grub:
   file.absent
+
+allow wheel:
+  file.uncomment:
+    - name: /etc/sudoers
+    - regex: ^ *%wheel
+
+disable no pass:
+  file.comment:
+    - name: /etc/sudoers
+    - regex: ^.*NOPASS
+
+allow sudoers.d:
+  file.uncomment:
+    - name: /etc/sudoers
+    - regex: ^ *%wheel
