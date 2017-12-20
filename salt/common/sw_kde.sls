@@ -29,10 +29,19 @@ plamsa base:
   pkg.installed:
     - pkgs:
       - breeze
-      - sddm
+
+install sddm if not gdm:
+  pkg.installed:
+      - name: sddm
+      - unless: dpkg -l gdm3 
 
 /etc/sddm.conf:
   file.replace:
     - pattern: Current=.*
     - repl: Current=breeze
+    - onlyif: dpkg -l sddm
 
+/usr/share/applications/org.qupzilla.QupZilla.desktop:
+ file.symlink:
+    - target: /usr/share/applications/qupzilla.desktop
+    - onlyif: test -f /usr/share/applications/qupzilla.desktop
