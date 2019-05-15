@@ -15,13 +15,19 @@ local:
     - persist: True
     - mount: True
 
-
+/{{ pillar ['data'] }}/home/:
+  file.directory:
+    - user: root
+    - group: local
+    - mode: 755
+    - makedirs: True
+ 
 
 pierre:
   user.present:
     - uid: 10705
     - gid: local
-    - home: {{ pillar ['data'] }}/home/pierre
+    - home: /{{ pillar ['data'] }}/home/pierre
     - createhome: False
     - shell: /bin/bash
     - password: $6$LTummqhg$QzvLKO7CGfUZBPXaNZUwXQwMUXN8YkUysY3lctm4VZPigGyWhwL86dUp68OupUDSoxXcYCHJbFzLqFZuEWGjS/

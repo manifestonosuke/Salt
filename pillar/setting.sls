@@ -1,4 +1,4 @@
-data: /data
+data: data
 datadev: LABEL=data
 kde:
   nop

@@ -14,33 +14,27 @@
       - system: True
 {% endif %}
 
-{{ data }}/local/bin:
+/{{ data }}/local/bin:
   file.directory:
     - user: root
     - group: local
     - dir_mode: 755
     - makedirs: True
 
-{{ data }}/local/env.d/:
+/{{ data }}/local/env.d/:
   file.directory:
     - user: root
     - group: local
     - dir_mode: 755
 
-{{ data }}/home/:
-  file.directory:
-    - user: root
-    - group: local
-    - dir_mode: 755
-
-{{ data }}/local/env.d/bashrc.root:
+/{{ data }}/local/env.d/bashrc.root:
   file.managed:
     - source : salt://common/bashrc.root
     - mode: 755
     - user: root
     - group: local
 
-{{ data }}/local/env.d/bashrc.user:
+/{{ data }}/local/env.d/bashrc.user:
   file.managed:
     - source : salt://common/bashrc.user
     - mode: 755

@@ -39,10 +39,12 @@ garbage common:
 /etc/kernel/postinst.d/zz-update-grub:
   file.absent
 
+{% if grains['os_family'] == 'RedHat' %}
 allow wheel:
   file.uncomment:
     - name: /etc/sudoers
     - regex: ^ *%wheel
+{% endif %}
 
 disable no pass:
   file.comment:

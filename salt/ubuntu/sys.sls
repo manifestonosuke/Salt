@@ -18,7 +18,7 @@ ModemManager:
    - disabled: True
    - dead
 
-unity-tweak-tool:
+gnome-tweak-tool:
   pkg:
     - installed
     - onlyif: 

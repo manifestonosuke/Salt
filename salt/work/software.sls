@@ -1,10 +1,5 @@
 {% set codename = salt['grains.get']('oscodename') %}
 
-hipchat_repo:
-  pkgrepo.managed: 
-    - name: deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ codename }} main
-    - file: /etc/apt/sources.list.d/hipchat.list
-    - key_url: https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public
-
-hipchat4:
-  pkg.installed
+download slack:
+  cmd.run:
+   - name: curl https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.0-amd64.deb -o /tmp/slack-desktop-3.4.0-amd64.deb
