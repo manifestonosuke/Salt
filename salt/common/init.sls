@@ -1,6 +1,6 @@
 include:
-  - .user
   - .env
   - .software
   - .virt
-  - .sys
+  - .sw_jpsupport
+  - .sw_kde

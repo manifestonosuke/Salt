@@ -1,13 +1,12 @@
-{% from "mm.jinja" import mm with context %}
-
 dekstop:
   pkg.installed:
     - pkgs:
       - ktorrent
       - amarok
+      - skrooge
       - calibre
+      - {{ pillar ['internet']['firefox'] }} 
+      - {{ pillar ['internet']['chromium'] }}
       - keepassx
+      - {{ pillar ['internet']['thunderbird'] }}
       - vlc
-try avidemux:
-  pkg.installed:
-    - name: {{ mm.avidemuxqt }}

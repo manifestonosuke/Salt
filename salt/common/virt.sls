@@ -1,13 +1,13 @@
-{% from "sw.jinja" import sw with context %}
-{% set nonext = ["Arch","Fedora"] %}
+{% from "map.jinja" import map with context %}
 
-
-{{ sw.virtualbox }}:
-  pkg.latest
-others:
+vbox:
   pkg.installed:
     - pkgs:
-{% if salt['grains.get']('os') not in ( "Arch","Fedora" ) %} 
-      - virtualbox-ext-pack
-{% endif %}
       - vagrant
+      - {{ map.virtualbox }}
+{% if grains['os'] != 'Arch' %}
+      - virtualbox-ext-pack
+{% else %}
+      - virtualbox-host-modules-arch
+{% endif %}
+

@@ -1,0 +1,5 @@
+if [ -f /data/env.d/bashrc.root ] ;
+then
+    	. /data/env.d/bashrc.root
+fi
+

@@ -1,11 +1,16 @@
-{% set data = pillar ['data'] %}
 
-/etc/profile.d/local.bashrc.sh:
+/root/.bashrc:
+  file.append:
+    - source : salt://common/files/bashrc
+
+/root/.vimrc:
   file.managed:
-    - source : salt://common/bashrc
-    - user: root
-    - group: local
-    - mode: 755
+    - source : salt://common/files/vimrc
+
+/root/.tmux.conf:
+  file.managed:
+    - source : salt://common/files/vimrc
+
 
 {% if grains['os_family'] == 'Suse' -%}
   adm:
@@ -14,44 +19,5 @@
       - system: True
 {% endif %}
 
-/{{ data }}/local/bin:
-  file.directory:
-    - user: root
-    - group: local
-    - dir_mode: 755
-    - makedirs: True
-
-/{{ data }}/local/env.d/:
-  file.directory:
-    - user: root
-    - group: local
-    - dir_mode: 755
-
-/{{ data }}/local/env.d/bashrc.root:
-  file.managed:
-    - source : salt://common/bashrc.root
-    - mode: 755
-    - user: root
-    - group: local
-
-/{{ data }}/local/env.d/bashrc.user:
-  file.managed:
-    - source : salt://common/bashrc.user
-    - mode: 755
-    - user: root
-    - group: local
-
-/etc/salt/minion.d/:
+/data/env.d:
   file.directory
-
-
-/etc/salt/minion.d/minion.conf:
-  file.managed:
-    - source: salt://common/minion
-    - template: jinja
-    - user: root
-    - perm: 755
-
-/root/.tmux.conf:
-  file.managed:
-    - source: salt://common/tmux.conf

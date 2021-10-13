@@ -1,6 +1,7 @@
-# Presentation 
+#Presentation 
 This is a salt configuration to mainly configure linux workstation.
-A choice of profile based on "type" grain like (work or home in this tree) 
+
+Some specifics are set with a profile like work or home
 '''python
 grains:
   type: work
@@ -8,16 +9,18 @@ grains:
 
 A partition for extra filesystem for data (default /data) is needed in pillar/setting.sls.
 In this file change 
-data: data => to your partition (like home or what ever)
-datadev: /dev/sda4 => to your partitionfor thie extra fs
+data: data => Mount point of the file system from / (ie : data or home)
+datadev: /dev/sda4 => Which partition is used (/dev/xxx or LABEL=data)
 
-To use the salt tree, choose a base dir for installing the salt tree.
-Copy Salt dir to this dir (like /opt) and cp etc/minion.opt.conf as minion (you may change the path by changing path in this file)
-Then run :
-salt-call --local -c /opt/Salt/etc/   state.show_highstate to verify (no execution just show).
+To use the salt tree,  copy Salt dir to /opt or another directory and create the file in Salt/etc/minion.conf.
+There are 2 models for /opt or /data, checkout content of this file.
+For opt you need to change file_roots and pillar_roots in the minion.conf then you can run highstate.
+salt-call --local -c /opt/Salt/etc/   state.show_highstate to verify.
 Of course salt-minion needs to be installed.
-To run :
-salt-call --local -c /opt/Salt/etc/   state.highstate
+To run the full cource run 
+'''
+  salt-call  state.highstate
+'''
 
 # Supported distro 
 This salt stack aim to support :

@@ -1,7 +1,4 @@
-{% from "sw.jinja" import sw with context %}
-
 {% set codename = salt['grains.get']('oscodename') %}
-
 {% if grains['os'] == 'Ubuntu' %}
 'deb http://archive.canonical.com/ubuntu {{ codename }} partner':
   pkgrepo.managed
@@ -17,8 +14,7 @@ sys-pkg:
       - git
       - sudo
       - tmux
-      - wget
-      - {{ sw.vim }}
+      - {{ pillar['vim'] }}
 
 vpn-pkg:
   pkg:
@@ -28,30 +24,26 @@ vpn-pkg:
       - networkmanager-openconnect
       - networkmanager-openvpn
       - networkmanager-vpnc
-{% elif grains['os'] in '(Fedora|SUSE)' %}
-      - NetworkManager-openconnect
-      - NetworkManager-openvpn 
-      - NetworkManager-vpnc
 {% else %}
       - network-manager-openconnect
       - network-manager-openvpn
       - network-manager-vpnc
 {% endif %}
 
+app:
+  pkg.installed:
+    - pkgs:
+      - keepassx
+      - xclip
+
 internet:
   pkg:
     - installed
     - pkgs:
-      - {{ sw.firefox }}
-      - {{ sw.thunderbird }}
-      - {{ sw.chromium }}
+      - {{ pillar['firefox'] }}
+      - {{ pillar['thunderbird'] }}
+      - {{ pillar['chromium'] }}
 
-{% if grains['osfullname'] == 'Debian' %}
-/usr/share/applications/firefox.desktop:
-  file.symlink:
-    - target: /usr/share/applications/firefox-esr.desktop 
-/usr/share/applications/thunderbird.desktop:
-  file.symlink:
-    - target: /usr/share/applications/icedove.desktop
+{% if grains['os'] != 'Arch' and grains['os'] != 'Debian' %}
+      - skype
 {% endif %}
-

@@ -1,0 +1,22 @@
+{% set map = salt['grains.filter_by']({
+    'default': {
+        'virtualbox': 'virtualbox',
+        'kdegtkconfig': 'kde-gtk-config',
+    },
+    'Debian': {
+        'virtualbox': 'virtualbox-qt',
+        'kdegtkconfig': 'kde-config-gtk-style',
+    },
+    'Ubuntu': {
+        'virtualbox': 'virtualbox-qt',
+        'kdegtkconfig': 'gtk2-engines-oxygen',
+    },
+    'RedHat': {
+        'virtualbox': 'VirtualBox',
+        'kdegtkconfig': 'kde-gtk-config',
+    },
+    'Arch': {
+        'virtualbox': 'virtualbox',
+        'kdegtkconfig': 'kde-gtk-config',
+    },
+}, merge=salt['pillar.get']('map:lookup'), default='default') %}

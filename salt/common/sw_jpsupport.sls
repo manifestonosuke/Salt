@@ -1,19 +1,11 @@
 
-ibus-base:
+jpsoft:
   pkg.installed:
     - pkgs :
-      - ibus
+      - ibus 
       - ibus-anthy
-      - ibus-qt 
 
-ibus-sup:
-  pkg.installed:
-    - pkgs :
-      - ibus-qt4
-      - ibus-gtk3
-      - ibus-gtk
-
-/{{ pillar ['data'] }}/local/env.d/scim.sh:
+/{{ pillar ['data'] }}/env.d/scim.sh:
   file.managed:
     - source: salt://home/scim.sh
 
@@ -34,24 +26,13 @@ jpfonts:
 jpfonts:
   pkg.installed:
     - pkgs :
-      - sazanami-fonts
-{% elif grains['os_family'] == 'Debian' -%}
-jpfonts:
-  pkg.installed:
-    - pkgs :
-      - fonts-sawarabi-mincho
-      - fonts-seto
-      - fonts-takao
-      - fonts-takao-gothic
-      - fonts-takao-mincho
-
-
+      - sazanami-fonts:
 {% elif grains['os'] == 'Arch' -%}
 jpfonts:
   pkg.installed:
-    - pkgs :
-      - ttf-sazanami 
-      - otf-ipafont
+    - pkgs:
+      - ttf-sazanami
+      - otf-ipamjfont 
 {% else %}
 jpfonts:
   pkg.installed:

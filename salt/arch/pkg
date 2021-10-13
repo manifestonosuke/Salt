@@ -1,0 +1,11 @@
+  483  pacman -Sy fakeroot
+  486  pacman -Sy  pulseaudio-bluetooth 
+  502  pacman -Sy pulseaudio-alsa 
+spectacle
+bc
+bluez-utils
+pulseaudio-bluetooth
+
+
+salt-minion:
+  service.disable
